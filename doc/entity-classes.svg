@@ -42,6 +42,9 @@
   <g>
     <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="211.991,201 210.991,201 164.609,201 153.081,201 "/>
     <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="166.845,193 150.845,201 166.845,209 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="187.8" y="198"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:end;font-family:monospace;font-style:normal;font-weight:normal" x="207.991" y="198"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="168.609" y="198"></text>
   </g>
   <g>
     <rect style="fill: #ffffff" x="330.6" y="301.6" width="148.6" height="28"/>
@@ -50,7 +53,7 @@
     <rect style="fill: #ffffff" x="330.6" y="329.6" width="148.6" height="52"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="330.6" y="329.6" width="148.6" height="52"/>
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="333.6" y="343.6">-accountId: String</text>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="333.6" y="359.6">-ballance: Long</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="333.6" y="359.6">-balance: Long</text>
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="333.6" y="375.6">-active: Boolean</text>
     <rect style="fill: #ffffff" x="330.6" y="381.6" width="148.6" height="8"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="330.6" y="381.6" width="148.6" height="8"/>
@@ -81,5 +84,8 @@
   <g>
     <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="576.6,261.6 576.6,355.6 483.672,355.6 "/>
     <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="497.436,347.6 481.436,355.6 497.436,363.6 "/>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:middle;font-family:monospace;font-style:normal;font-weight:normal" x="527.9" y="352.6"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="580.6" y="273.6"></text>
+    <text font-size="12.7998" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="499.2" y="352.6"></text>
   </g>
 </svg>

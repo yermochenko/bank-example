@@ -37,7 +37,7 @@
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="430.3" y="151.6">account_id</text>
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="517.3" y="151.6">VARCHAR</text>
     <ellipse style="fill: #000000" cx="426.3" cy="161.6" rx="2" ry="2"/>
-    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="430.3" y="167.6">ballance</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="430.3" y="167.6">balance</text>
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="517.3" y="167.6">LONG</text>
     <ellipse style="fill: #000000" cx="426.3" cy="177.6" rx="2" ry="2"/>
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="430.3" y="183.6">is_active</text>
