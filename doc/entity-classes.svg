@@ -63,7 +63,7 @@
   <g>
     <rect style="fill: #ffffff" x="494.6" y="157.6" width="164" height="28"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="494.6" y="157.6" width="164" height="28"/>
-    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="576.6" y="176.6">Transfering</text>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="576.6" y="176.6">Transfer</text>
     <rect style="fill: #ffffff" x="494.6" y="185.6" width="164" height="68"/>
     <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="494.6" y="185.6" width="164" height="68"/>
     <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="497.6" y="199.6">-source: Client</text>
