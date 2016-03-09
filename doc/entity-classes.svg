@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.0//EN" "http://www.w3.org/TR/2001/PR-SVG-20010719/DTD/svg10.dtd">
+<svg width="30cm" height="18cm" viewBox="75 31 585 360" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <g>
+    <rect style="fill: #ffffff" x="76" y="153" width="71.6" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="76" y="153" width="71.6" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="111.8" y="172">Role</text>
+    <rect style="fill: #ffffff" x="76" y="181" width="71.6" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="76" y="181" width="71.6" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:oblique;font-weight:normal" x="79" y="195"> CLIENT</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:oblique;font-weight:normal" x="79" y="211"> CASHIER</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:oblique;font-weight:normal" x="79" y="227"> MANAGER</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:oblique;font-weight:normal" x="79" y="243"> ADMIN</text>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="339" y="32" width="102.4" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="339" y="32" width="102.4" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:oblique;font-weight:700" x="390.2" y="51">Entity</text>
+    <rect style="fill: #ffffff" x="339" y="60" width="102.4" height="20"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="339" y="60" width="102.4" height="20"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="342" y="74">-id: Integer</text>
+    <rect style="fill: #ffffff" x="339" y="80" width="102.4" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="339" y="80" width="102.4" height="8"/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="213" y="157" width="140.9" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="213" y="157" width="140.9" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="283.45" y="176">User</text>
+    <rect style="fill: #ffffff" x="213" y="185" width="140.9" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="213" y="185" width="140.9" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="216" y="199">-login: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="216" y="215">-password: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="216" y="231">-role: Role</text>
+    <rect style="fill: #ffffff" x="213" y="237" width="140.9" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="213" y="237" width="140.9" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="390.2,106.236 390.2,130.5 283.45,130.5 283.45,157 "/>
+    <polygon style="fill: #ffffff" points="398.2,106.236 390.2,90.2361 382.2,106.236 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="398.2,106.236 390.2,90.2361 382.2,106.236 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="211.991,201 210.991,201 164.609,201 153.081,201 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="166.845,193 150.845,201 166.845,209 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="330.6" y="301.6" width="148.6" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="330.6" y="301.6" width="148.6" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="404.9" y="320.6">Client</text>
+    <rect style="fill: #ffffff" x="330.6" y="329.6" width="148.6" height="52"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="330.6" y="329.6" width="148.6" height="52"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="333.6" y="343.6">-accountId: String</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="333.6" y="359.6">-ballance: Long</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="333.6" y="375.6">-active: Boolean</text>
+    <rect style="fill: #ffffff" x="330.6" y="381.6" width="148.6" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="330.6" y="381.6" width="148.6" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="283.45,264.242 283.45,281.3 404.9,281.3 404.9,300.595 "/>
+    <polygon style="fill: #ffffff" points="291.45,264.242 283.45,248.242 275.45,264.242 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="291.45,264.242 283.45,248.242 275.45,264.242 "/>
+  </g>
+  <g>
+    <rect style="fill: #ffffff" x="494.6" y="157.6" width="164" height="28"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="494.6" y="157.6" width="164" height="28"/>
+    <text font-size="16" style="fill: #000000;text-anchor:middle;font-family:sans-serif;font-style:normal;font-weight:700" x="576.6" y="176.6">Transfering</text>
+    <rect style="fill: #ffffff" x="494.6" y="185.6" width="164" height="68"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="494.6" y="185.6" width="164" height="68"/>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="497.6" y="199.6">-source: Client</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="497.6" y="215.6">-destination: Client</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="497.6" y="231.6">-date: Date</text>
+    <text font-size="12.8" style="fill: #000000;text-anchor:start;font-family:monospace;font-style:normal;font-weight:normal" x="497.6" y="247.6">-sum: Long</text>
+    <rect style="fill: #ffffff" x="494.6" y="253.6" width="164" height="8"/>
+    <rect style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" x="494.6" y="253.6" width="164" height="8"/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="390.2,107.243 390.2,130.8 576.6,130.8 576.6,156.594 "/>
+    <polygon style="fill: #ffffff" points="398.2,107.243 390.2,91.2431 382.2,107.243 "/>
+    <polygon style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="398.2,107.243 390.2,91.2431 382.2,107.243 "/>
+  </g>
+  <g>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="576.6,261.6 576.6,355.6 483.672,355.6 "/>
+    <polyline style="fill: none; fill-opacity:0; stroke-width: 2; stroke: #000000" points="497.436,347.6 481.436,355.6 497.436,363.6 "/>
+  </g>
+</svg>
