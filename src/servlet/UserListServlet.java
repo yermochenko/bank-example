@@ -50,6 +50,7 @@ public class UserListServlet extends HttpServlet {
 			writer.printf("</TR>");
 		}
 		writer.println("</TABLE>");
+		writer.println("<FORM action=\"edit.html\"><BUTTON type=\"submit\">Добавить работника</BUTTON></FORM>");
 		writer.println("<DIV>&copy; Банк &laquo;Черноморское отделение Арбатовской конторы по заготовке рогов и копыт&raquo;</DIV>");
 		writer.println("</BODY>");
 		writer.println("</HTML>");
