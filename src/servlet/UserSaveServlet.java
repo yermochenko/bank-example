@@ -15,6 +15,7 @@ import service.UserStorage;
 public class UserSaveServlet extends HttpServlet {
 	@Override
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		Integer id = null;
 		String login = null;
 		Role role = null;
 		try {
@@ -23,11 +24,15 @@ public class UserSaveServlet extends HttpServlet {
 			if(!Pattern.matches("\\w+", login)) {
 				login = null;
 			}
+			id = Integer.parseInt(request.getParameter("id"));
 		} catch(NullPointerException | IllegalArgumentException e) {}
 		if(login != null && role != null) {
 			User user = new User();
 			user.setLogin(login);
 			user.setRole(role);
+			if(id != null) {
+				user.setId(id);
+			}
 			UserStorage.save(user);
 		}
 		response.sendRedirect(request.getContextPath() + "/index.html");

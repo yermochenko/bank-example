@@ -42,6 +42,10 @@ public class UserStorage {
 		save(user);
 	}
 
+	public static User findById(Integer id) {
+		return users.get(id);
+	}
+
 	public static List<User> findAll() {
 		return new ArrayList<>(users.values());
 	}
@@ -55,6 +59,13 @@ public class UserStorage {
 			}
 			user.setId(id);
 			user.setPassword("12345");
+		} else {
+			User oldUser = users.get(user.getId());
+			if(oldUser != null) {
+				user.setPassword(oldUser.getPassword());
+			} else {
+				return;
+			}
 		}
 		users.put(user.getId(), user);
 	}

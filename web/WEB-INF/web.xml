@@ -17,6 +17,15 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>UserEditServlet</servlet-name>
+		<servlet-class>servlet.UserEditServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserEditServlet</servlet-name>
+		<url-pattern>/edit.html</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>UserSaveServlet</servlet-name>
 		<servlet-class>servlet.UserSaveServlet</servlet-class>
 	</servlet>

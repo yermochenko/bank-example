@@ -9,13 +9,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import domain.Role;
 import domain.User;
 import service.UserStorage;
 
-public class UserListServlet extends HttpServlet {
+public class UserEditServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<User> users = UserStorage.findAll();
+		User user = null;
+		try {
+			user = UserStorage.findById(Integer.parseInt(request.getParameter("id")));
+		} catch(NumberFormatException e) {}
 		response.setCharacterEncoding("UTF-8");
 		PrintWriter writer = response.getWriter();
 		writer.println("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\" \"http://www.w3.org/TR/html4/strict.dtd\">");
@@ -23,34 +27,28 @@ public class UserListServlet extends HttpServlet {
 		writer.println("<HEAD>");
 		writer.println("<META http-equiv=\"Content-Type\" content=\"text/html; charset=UTF-8\">");
 		writer.println("<TITLE>Банк &laquo;Рога&nbsp;&amp;&nbsp;копыта&raquo;</TITLE>");
-		writer.println("<STYLE>");
-		writer.println("TABLE {");
-		writer.println("border-collapse: collapse;");
-		writer.println("}");
-		writer.println("TH, TD {");
-		writer.println("border: 1px solid black;");
-		writer.println("padding: 5px 30px 5px 10px;");
-		writer.println("}");
-		writer.println("</STYLE>");
 		writer.println("</HEAD>");
 		writer.println("<BODY>");
 		writer.println("<H1>Банк &laquo;Рога&nbsp;&amp;&nbsp;копыта&raquo;</H1>");
-		writer.println("<H2>Пример таблицы</H2>");
-		writer.println("<TABLE>");
-		writer.println("<TR>");
-		writer.println("<TH>Имя пользователя</TH>");
-		writer.println("<TH>Пароль</TH>");
-		writer.println("<TH>Роль</TH>");
-		writer.println("</TR>");
-		for(User user: users) {
-			writer.printf("<TR id=\"edit.html?id=%d\">", user.getId());
-			writer.printf("<TD><A href=\"edit.html?id=%d\">%s</A></TD>", user.getId(), user.getLogin());
-			writer.printf("<TD>%s</TD>", user.getPassword());
-			writer.printf("<TD>%s</TD>", user.getRole().toString());
-			writer.printf("</TR>");
+
+		writer.println("<H2>Добавление нового работника</H2>");
+		writer.println("<FORM action=\"save.html\" method=\"post\">");
+		if(user != null) {
+			writer.printf("<INPUT type=\"hidden\" name=\"id\" value=\"%d\">", user.getId());
 		}
-		writer.println("</TABLE>");
-		writer.println("<FORM action=\"edit.html\"><BUTTON type=\"submit\">Добавить работника</BUTTON></FORM>");
+		writer.println("<LABEL for=\"login-id\">Имя пользователя:</LABEL>");
+		writer.printf("<INPUT type=\"text\" id=\"login-id\" name=\"login\" value=\"%s\">", user != null ? user.getLogin() : new String());
+		writer.println("<LABEL for=\"role-id\">Роль:</LABEL>");
+		writer.println("<SELECT id=\"role-id\" name=\"role\">");
+		List<Role> roles = Role.employees();
+		for(Role role : roles) {
+			writer.printf("<OPTION value=\"%1$s\"%2$s>%1$s</OPTION>", role, user != null && role == user.getRole() ? " selected" : new String());
+		}
+		writer.println("</SELECT>");
+		writer.println("<BUTTON type=\"submit\">Сохранить</BUTTON>");
+		writer.println("<BUTTON type=\"reset\">Сбросить</BUTTON>");
+		writer.println("</FORM>");
+		writer.println("<FORM action=\"index.html\"><BUTTON type=\"submit\">Назад</BUTTON></FORM>");
 		writer.println("<DIV>&copy; Банк &laquo;Черноморское отделение Арбатовской конторы по заготовке рогов и копыт&raquo;</DIV>");
 		writer.println("</BODY>");
 		writer.println("</HTML>");
