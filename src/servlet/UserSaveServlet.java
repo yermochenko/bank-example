@@ -30,6 +30,6 @@ public class UserSaveServlet extends HttpServlet {
 			user.setRole(role);
 			UserStorage.save(user);
 		}
-		getServletContext().getRequestDispatcher("/index.html").forward(request, response);
+		response.sendRedirect(request.getContextPath() + "/index.html");
 	}
 }
