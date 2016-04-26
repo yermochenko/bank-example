@@ -17,12 +17,30 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>UserViewListServlet</servlet-name>
+		<servlet-class>servlet.UserViewListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserViewListServlet</servlet-name>
+		<url-pattern>/WEB-INF/index.html</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>UserEditServlet</servlet-name>
 		<servlet-class>servlet.UserEditServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>UserEditServlet</servlet-name>
 		<url-pattern>/edit.html</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UserViewEditServlet</servlet-name>
+		<servlet-class>servlet.UserViewEditServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserViewEditServlet</servlet-name>
+		<url-pattern>/WEB-INF/edit.html</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
