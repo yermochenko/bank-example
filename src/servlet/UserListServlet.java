@@ -16,6 +16,6 @@ public class UserListServlet extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		List<User> users = UserStorage.findAll();
 		request.setAttribute("users", users);
-		getServletContext().getRequestDispatcher("/WEB-INF/index.html").forward(request, response);
+		getServletContext().getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
 	}
 }
