@@ -36,20 +36,25 @@ public class UserListServlet extends HttpServlet {
 		writer.println("<BODY>");
 		writer.println("<H1>Банк &laquo;Рога&nbsp;&amp;&nbsp;копыта&raquo;</H1>");
 		writer.println("<H2>Пример таблицы</H2>");
+		writer.println("<FORM action=\"delete.html\" method=\"post\">");
 		writer.println("<TABLE>");
 		writer.println("<TR>");
+		writer.println("<TD>&nbsp;</TD>");
 		writer.println("<TH>Имя пользователя</TH>");
 		writer.println("<TH>Пароль</TH>");
 		writer.println("<TH>Роль</TH>");
 		writer.println("</TR>");
 		for(User user: users) {
 			writer.printf("<TR id=\"edit.html?id=%d\">", user.getId());
+			writer.printf("<TD><INPUT type=\"checkbox\" name=\"id\" value=\"%d\"></TD>", user.getId());
 			writer.printf("<TD><A href=\"edit.html?id=%d\">%s</A></TD>", user.getId(), user.getLogin());
 			writer.printf("<TD>%s</TD>", user.getPassword());
 			writer.printf("<TD>%s</TD>", user.getRole().toString());
 			writer.printf("</TR>");
 		}
 		writer.println("</TABLE>");
+		writer.println("<BUTTON type=\"submit\">Уволить работников</BUTTON>");
+		writer.println("</FORM>");
 		writer.println("<FORM action=\"edit.html\"><BUTTON type=\"submit\">Добавить работника</BUTTON></FORM>");
 		writer.println("<DIV>&copy; Банк &laquo;Черноморское отделение Арбатовской конторы по заготовке рогов и копыт&raquo;</DIV>");
 		writer.println("</BODY>");

@@ -69,4 +69,10 @@ public class UserStorage {
 		}
 		users.put(user.getId(), user);
 	}
+
+	public static void delete(List<Integer> ids) {
+		for(Integer id : ids) {
+			users.remove(id);
+		}
+	}
 }

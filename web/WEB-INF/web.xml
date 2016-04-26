@@ -33,4 +33,13 @@
 		<servlet-name>UserSaveServlet</servlet-name>
 		<url-pattern>/save.html</url-pattern>
 	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>UserDeleteServlet</servlet-name>
+		<servlet-class>servlet.UserDeleteServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>UserDeleteServlet</servlet-name>
+		<url-pattern>/delete.html</url-pattern>
+	</servlet-mapping>
 </web-app>
