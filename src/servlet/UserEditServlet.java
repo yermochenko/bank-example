@@ -2,6 +2,7 @@ package servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Arrays;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -21,7 +22,11 @@ public class UserEditServlet extends HttpServlet {
 				user = UserStorage.findById(Integer.parseInt(request.getParameter("id")));
 			} catch(NumberFormatException e) {}
 			request.setAttribute("user", user);
-			request.setAttribute("roles", Role.employees());
+			if(user == null || user.getRole() == Role.CLIENT) {
+				request.setAttribute("roles", Arrays.asList(Role.CLIENT));
+			} else {
+				request.setAttribute("roles", Role.employees());
+			}
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/edit.jsp").forward(request, response);
 		} catch(SQLException e) {
 			throw new ServletException(e);

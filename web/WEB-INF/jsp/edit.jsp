@@ -13,7 +13,7 @@
 		<H1>Банк &laquo;Рога&nbsp;&amp;&nbsp;копыта&raquo;</H1>
 		<H2>Добавление нового работника</H2>
 		<FORM action="save.html" method="post">
-			<c:if test="${not empty user.id}">
+			<c:if test="${user.role != 'CLIENT' and not empty user.id}">
 				<INPUT type="hidden" name="id" value="${user.id}">
 			</c:if>
 			<LABEL for="login-id">Имя пользователя:</LABEL>
@@ -32,7 +32,10 @@
 					<OPTION value="${role}"${selected}>${role}</OPTION>
 				</c:forEach>
 			</SELECT>
-			<BUTTON type="submit">Сохранить</BUTTON>
+			<c:if test="${user.role == 'CLIENT'}">
+				<c:set var="disabled" value=" disabled"/>
+			</c:if>
+			<BUTTON type="submit"${disabled}>Сохранить</BUTTON>
 			<BUTTON type="reset">Сбросить</BUTTON>
 		</FORM>
 		<FORM action="index.html"><BUTTON type="submit">Назад</BUTTON></FORM>
