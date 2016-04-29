@@ -78,15 +78,17 @@ public class UserStorage {
 	}
 
 	public static void save(User user) throws SQLException {
-		if(user.getId() == null) {
-			user.setPassword("12345");
-			Integer id = create(user);
-			user.setId(id);
-		} else {
-			User oldUser = findById(user.getId());
-			if(oldUser != null) {
-				user.setPassword(oldUser.getPassword());
-				update(user);
+		if(user.getRole() != Role.CLIENT) {
+			if(user.getId() == null) {
+				user.setPassword("12345");
+				Integer id = create(user);
+				user.setId(id);
+			} else {
+				User oldUser = findById(user.getId());
+				if(oldUser != null && oldUser.getRole() != Role.CLIENT) {
+					user.setPassword(oldUser.getPassword());
+					update(user);
+				}
 			}
 		}
 	}
