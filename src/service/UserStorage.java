@@ -92,8 +92,12 @@ public class UserStorage {
 	}
 
 	public static void delete(List<Integer> ids) throws SQLException {
+		User user;
 		for(Integer id : ids) {
-			delete(id);
+			user = findById(id);
+			if(user.getRole() != Role.CLIENT) {
+				delete(id);
+			}
 		}
 	}
 
