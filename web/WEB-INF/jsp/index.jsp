@@ -28,7 +28,14 @@
 				</TR>
 				<c:forEach var="user" items="${users}">
 					<TR id="edit.html?id=${user.id}">
-						<TD><INPUT type="checkbox" name="id" value="${user.id}"></TD>
+						<TD>
+							<c:choose>
+								<c:when test="${user.role != 'CLIENT'}">
+									<INPUT type="checkbox" name="id" value="${user.id}">
+								</c:when>
+								<c:otherwise>&nbsp;</c:otherwise>
+							</c:choose>
+						</TD>
 						<TD><A href="edit.html?id=${user.id}">${user.login}</A></TD>
 						<TD>${user.password}</TD>
 						<TD>${user.role}</TD>
