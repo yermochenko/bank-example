@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.regex.Pattern;
 
 import javax.servlet.ServletException;
@@ -33,7 +34,11 @@ public class UserSaveServlet extends HttpServlet {
 			if(id != null) {
 				user.setId(id);
 			}
-			UserStorage.save(user);
+			try {
+				UserStorage.save(user);
+			} catch(SQLException e) {
+				throw new ServletException(e);
+			}
 		}
 		response.sendRedirect(request.getContextPath() + "/index.html");
 	}

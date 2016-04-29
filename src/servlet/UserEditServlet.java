@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -14,12 +15,16 @@ import service.UserStorage;
 public class UserEditServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		User user = null;
 		try {
-			user = UserStorage.findById(Integer.parseInt(request.getParameter("id")));
-		} catch(NumberFormatException e) {}
-		request.setAttribute("user", user);
-		request.setAttribute("roles", Role.employees());
-		getServletContext().getRequestDispatcher("/WEB-INF/jsp/edit.jsp").forward(request, response);
+			User user = null;
+			try {
+				user = UserStorage.findById(Integer.parseInt(request.getParameter("id")));
+			} catch(NumberFormatException e) {}
+			request.setAttribute("user", user);
+			request.setAttribute("roles", Role.employees());
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/edit.jsp").forward(request, response);
+		} catch(SQLException e) {
+			throw new ServletException(e);
+		}
 	}
 }

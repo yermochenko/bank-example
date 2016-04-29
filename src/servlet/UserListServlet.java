@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -14,8 +15,12 @@ import service.UserStorage;
 public class UserListServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		List<User> users = UserStorage.findAll();
-		request.setAttribute("users", users);
-		getServletContext().getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
+		try {
+			List<User> users = UserStorage.findAll();
+			request.setAttribute("users", users);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
+		} catch(SQLException e) {
+			throw new ServletException(e);
+		}
 	}
 }

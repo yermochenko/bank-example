@@ -1,6 +1,7 @@
 package servlet;
 
 import java.io.IOException;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -20,7 +21,11 @@ public class UserDeleteServlet extends HttpServlet {
 				ids.add(Integer.parseInt(id));
 			} catch(NumberFormatException e) {}
 		}
-		UserStorage.delete(ids);
+		try {
+			UserStorage.delete(ids);
+		} catch(SQLException e) {
+			throw new ServletException(e);
+		}
 		response.sendRedirect(request.getContextPath() + "/index.html");
 	}
 }
