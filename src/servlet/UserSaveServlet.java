@@ -31,11 +31,15 @@ public class UserSaveServlet extends HttpServlet {
 			User user = new User();
 			user.setLogin(login);
 			user.setRole(role);
-			if(id != null) {
-				user.setId(id);
-			}
 			try {
-				UserStorage.save(user);
+				Role oldRole = null;
+				if(id != null) {
+					user.setId(id);
+					oldRole = UserStorage.findById(id).getRole();
+				}
+				if(oldRole != Role.CLIENT && user.getRole() != Role.CLIENT) {
+					UserStorage.save(user);
+				}
 			} catch(SQLException e) {
 				throw new ServletException(e);
 			}
