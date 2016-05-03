@@ -1,0 +1,37 @@
+#header, #header OL {
+	background: #007FFF;
+	border-color: #0066CC;
+}
+
+#header A.marked {
+	background: #0066CC;
+}
+
+#header A:hover {
+	background: #0073E6;
+}
+
+#content A {
+	color: #007FFF;
+}
+
+#content A:hover {
+	color: #0066CC;
+}
+
+#content INPUT:focus, #content TEXTAREA:focus, #content SELECT:focus {
+	border: 1px solid #007FFF;
+	box-shadow: 0 0 10px rgba(0, 127, 255, 0.5);
+}
+
+#content BUTTON, #message-box BUTTON {
+	background: #007FFF;
+}
+
+#content BUTTON:hover, #message-box BUTTON:hover {
+	background: #0066CC;
+}
+
+#message-box DIV {
+	border: 2px solid #0066CC;
+}

@@ -1,0 +1,296 @@
+* {
+	padding: 0;
+	margin: 0;
+	border: 0;
+	font-family: "Verdana", sans-serif;
+	font-size: 10pt;
+}
+
+BODY {
+	background: #F2F2F2 url("img/background.png") fixed 8px 8px;
+}
+
+#header {
+	width: 100%;
+	height: 50px;
+	color: white;
+	border-width: 1px;
+	border-style: solid;
+	position: fixed;
+	box-shadow: 0 0 10px rgba(0, 0, 0, 0.75);
+}
+
+#header H1 {
+	line-height: 48px;
+	padding: 0 10px;
+	font-size: 20pt;
+	font-weight: normal;
+	font-style: italic;
+	overflow: hidden;
+	float: left;
+}
+
+#header UL {
+	float: right;
+}
+
+#header UL LI {
+	float: left;
+}
+
+#header OL LI {
+	float: none;
+}
+
+#header UL, #header OL {
+	list-style: none;
+}
+
+#header OL {
+	border-width: 1px;
+	border-style: solid;
+	box-shadow: 0 5px 10px rgba(0, 0, 0, 0.25);
+}
+
+#header A {
+	display: block;
+	text-align:center;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 10px;
+	color: white;
+	text-decoration: none;
+	overflow: hidden;
+}
+
+#header A IMG {
+	height: 7px;
+	width: 7px;
+	vertical-align: middle;
+}
+
+#header OL A {
+	text-align: left;
+	height: 30px;
+	line-height: 30px;
+	overflow: hidden;
+}
+
+#content {
+	padding: 70px 0 0 0;
+	width: 100%;
+	margin: 0 auto;
+}
+
+#content A {
+	text-decoration: none;
+}
+
+#content A:hover {
+	text-decoration: underline;
+}
+
+#content H2 {
+	font-size: 12pt;
+	min-height: 30px;
+	line-height: 30px;
+}
+
+.block {
+	background: white;
+	padding: 20px;
+	margin: 0 20px 20px 20px;
+	box-shadow: 0 2px 10px rgba(0, 0, 0, 0.25);
+}
+
+#content .insignificant {
+	color: #999999;
+}
+
+#content LABEL {
+	display: block;
+	font-weight: bold;
+	margin-top: 20px;
+	min-height: 30px;
+	line-height: 30px;
+}
+
+#content INPUT, #content SELECT {
+	padding: 0 10px !important;
+}
+
+#content TEXTAREA {
+	padding: 10px !important;
+}
+
+#content INPUT, #content TEXTAREA, #content SELECT {
+	border: 1px solid #CCCCCC;
+	width: 100%;
+	box-sizing: border-box !important;
+}
+
+#content INPUT[disabled], #content TEXTAREA[disabled], #content SELECT[disabled] {
+	background: #EEEEEE;
+}
+
+#content INPUT, #content SELECT {
+	height: 30px;
+	line-height: 30px;
+}
+
+#content INPUT[type="checkbox"], #content INPUT[type="radio"] {
+	width: 20px;
+	height: 20px;
+	margin: 5px 10px 5px 0;
+	float: left;
+}
+
+#content TEXTAREA {
+	height: 100px;
+}
+
+#content BUTTON, #message-box BUTTON {
+	height: 50px;
+	line-height: 50px;
+	margin: 20px 20px 0 0;
+	color: white;
+	padding: 0 20px;
+}
+
+#content BUTTON:hover, #message-box BUTTON:hover {
+	cursor: pointer;
+}
+
+#content BUTTON[disabled], #content BUTTON[disabled]:hover {
+	background: #999999;
+}
+
+#content DT {
+	font-weight: bold;
+}
+
+#content DT, #content OL, #content UL {
+	margin-top: 20px;
+	list-style-position: inside;
+}
+
+#content DT, #content LI {
+	min-height: 30px;
+	line-height: 30px;
+}
+
+#content OL {
+	counter-reset: item;
+}
+
+#content LI {
+	list-style-type: none;
+}
+
+#content UL LI:before {
+	color: #999999;
+	content: "●";
+	padding-right: 10px;
+}
+
+#content OL LI:before {
+	color: #999999;
+	content: counter(item) ".";
+	counter-increment: item;
+	padding-right: 10px;
+}
+
+#content UL.dropdown LI:before, #content UL.dropdowncontainer LI:before {
+	content: "";
+}
+
+#content UL.dropdown {
+	margin-left: 30px;
+	margin-top: 0;
+}
+
+#content TABLE {
+	margin-top: 20px;
+	width: 100%;
+	border-collapse: collapse;
+}
+
+#content TR {
+	min-height: 30px;
+	line-height: 30px;
+}
+
+#content TR[id]:hover {
+	cursor: pointer;
+	background: #EEEEEE;
+}
+
+#content TR:hover {
+	background: transparent;
+}
+
+#content TH, #content TD {
+	text-align: left;
+	padding: 0 10px;
+}
+
+#content TH {
+	border-bottom: 2px solid #CCCCCC;
+}
+
+#content TD {
+	border-top: 1px solid #CCCCCC;
+}
+
+#content .error {
+	color: #FFFFFF;
+	background: #CC0000;
+	padding: 15px;
+	text-align: center;
+	border: 2px solid #990000;
+}
+
+#copyright {
+	background: rgba(255, 255, 255, 0.4);
+	color: #666666;
+	height: 50px;
+	line-height: 50px;
+	padding: 0 10px;
+	overflow: hidden;
+	clear: both;
+}
+
+#message-box {
+	position: fixed;
+	height: 100%;
+	width: 100%;
+	background: rgba(21, 21, 21, 0.25);
+	z-index: 1;
+}
+
+#message-box DIV {
+	position: fixed;
+	background: white;
+	height: 38%;
+	width: 38%;
+	top: 31%;
+	left: 31%;
+	padding: 20px;
+	box-shadow: 0 5px 20px rgba(0, 0, 0, 0.75);
+}
+
+#message-box BUTTON {
+	min-width: 150px;
+}
+
+#message-box P {
+	text-align: center;
+	font-size: 16px;
+	margin-top: 20px;
+	font-weight: bold;
+}
+
+#message-box FORM {
+	position: absolute;
+	bottom: 20px;
+}
