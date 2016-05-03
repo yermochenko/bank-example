@@ -26,6 +26,15 @@
 	</context-param>
 
 	<servlet>
+		<servlet-name>LoginServlet</servlet-name>
+		<servlet-class>servlet.LoginServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>LoginServlet</servlet-name>
+		<url-pattern>/login.html</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>UserListServlet</servlet-name>
 		<servlet-class>servlet.UserListServlet</servlet-class>
 	</servlet>

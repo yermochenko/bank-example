@@ -8,12 +8,21 @@
 	</HEAD>
 	<BODY>
 		<H1>Банк &laquo;Рога&nbsp;&amp;&nbsp;копыта&raquo;</H1>
+		<c:choose>
+			<c:when test="${not empty currentUser}">
+				<P>${currentUser.login}</P>
+			</c:when>
+			<c:otherwise>
+				<P><A href="login.html">войти</A></P>
+			</c:otherwise>
+		</c:choose>
 		<H2 style="color: white; background: #CD0000; padding: 15px; text-align: center; border: 1px solid darkred;">
 			<c:choose>
 				<c:when test="${not empty pageContext.exception}">Ошибка работы с базой данных</c:when>
 				<c:otherwise>Непредвиденная ошибка приложения</c:otherwise>
 			</c:choose>
 		</H2>
+		<P><A href="index.html">перейти на главную страницу</A></P>
 		<DIV>&copy; Банк &laquo;Черноморское отделение Арбатовской конторы по заготовке рогов и копыт&raquo;</DIV>
 	</BODY>
 </HTML>

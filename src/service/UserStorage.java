@@ -44,6 +44,39 @@ public class UserStorage {
 		}
 	}
 
+	public static User findByLoginAndPassword(String login, String password) throws SQLException {
+		String sql = "SELECT `id`, `role` FROM `user` WHERE `login`=? AND `password`=?";
+		Connection connection = null;
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			connection = Connector.connect();
+			statement = connection.prepareStatement(sql);
+			statement.setString(1, login);
+			statement.setString(2, password);
+			resultSet = statement.executeQuery();
+			User user = null;
+			if(resultSet.next()) {
+				user = new User();
+				user.setId(resultSet.getInt("id"));
+				user.setLogin(login);
+				user.setPassword(password);
+				user.setRole(Role.values()[resultSet.getInt("role")]);
+			}
+			return user;
+		} finally {
+			try {
+				resultSet.close();
+			} catch(NullPointerException | SQLException e) {}
+			try {
+				statement.close();
+			} catch(NullPointerException | SQLException e) {}
+			try {
+				connection.close();
+			} catch(NullPointerException | SQLException e) {}
+		}
+	}
+
 	public static List<User> findAll() throws SQLException {
 		String sql = "SELECT `id`, `login`, `password`, `role` FROM `user`";
 		Connection connection = null;

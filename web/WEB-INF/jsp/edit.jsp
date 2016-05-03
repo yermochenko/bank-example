@@ -11,6 +11,14 @@
 	</HEAD>
 	<BODY>
 		<H1>Банк &laquo;Рога&nbsp;&amp;&nbsp;копыта&raquo;</H1>
+		<c:choose>
+			<c:when test="${not empty currentUser}">
+				<P>${currentUser.login}</P>
+			</c:when>
+			<c:otherwise>
+				<P><A href="login.html">войти</A></P>
+			</c:otherwise>
+		</c:choose>
 		<H2>Добавление нового работника</H2>
 		<FORM action="save.html" method="post">
 			<c:if test="${user.role != 'CLIENT' and not empty user.id}">
