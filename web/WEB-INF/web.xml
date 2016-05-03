@@ -25,6 +25,39 @@
 		<param-value>bank_password</param-value>
 	</context-param>
 
+	<filter>
+		<filter-name>SecurityFilter</filter-name>
+		<filter-class>servlet.SecurityFilter</filter-class>
+		<init-param>
+			<param-name>/logout.html</param-name>
+			<param-value>ADMIN;CASHIER;CLIENT;MANAGER</param-value>
+		</init-param>
+		<init-param>
+			<param-name>/</param-name>
+			<param-value>ADMIN</param-value>
+		</init-param>
+		<init-param>
+			<param-name>/index.html</param-name>
+			<param-value>ADMIN</param-value>
+		</init-param>
+		<init-param>
+			<param-name>/edit.html</param-name>
+			<param-value>ADMIN</param-value>
+		</init-param>
+		<init-param>
+			<param-name>/save.html</param-name>
+			<param-value>ADMIN</param-value>
+		</init-param>
+		<init-param>
+			<param-name>/delete.html</param-name>
+			<param-value>ADMIN</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>SecurityFilter</filter-name>
+		<url-pattern>*.html</url-pattern>
+	</filter-mapping>
+
 	<servlet>
 		<servlet-name>LoginServlet</servlet-name>
 		<servlet-class>servlet.LoginServlet</servlet-class>
@@ -85,6 +118,10 @@
 
 	<error-page>
 		<exception-type>javax.servlet.ServletException</exception-type>
+		<location>/WEB-INF/jsp/error.jsp</location>
+	</error-page>
+	<error-page>
+		<error-code>404</error-code>
 		<location>/WEB-INF/jsp/error.jsp</location>
 	</error-page>
 </web-app>
