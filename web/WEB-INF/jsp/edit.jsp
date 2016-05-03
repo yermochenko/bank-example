@@ -11,11 +11,12 @@
 	</c:otherwise>
 </c:choose>
 <c:url var="cssUrl" value="/css/admin.css"/>
-<u:html title="${title}" stylesheet="${cssUrl}">
+<c:url var="jsUrl" value="/js/edit-user-handler.js"/>
+<u:html title="${title}" stylesheet="${cssUrl}" jshandler="${jsUrl}">
 	<DIV class="block">
 		<H2>${title}</H2>
 		<c:url var="saveUrl" value="/save.html"/>
-		<FORM action="${saveUrl}" method="post">
+		<FORM id="user-edit-form" action="${saveUrl}" method="post">
 			<c:if test="${user.role != 'CLIENT' and not empty user.id}">
 				<INPUT type="hidden" name="id" value="${user.id}">
 			</c:if>

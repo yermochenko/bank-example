@@ -164,3 +164,56 @@ function elements(selector, parent) {
 	}
 	return result;
 }
+
+function __msg(message, buttons) {
+	var body = elements({'type': SelectorType.TAG, 'value': "body"})[0];
+	body.style.overflow = "hidden";
+	var messageElement = document.createElement("DIV");
+	messageElement.id = "message-box";
+	var messageContent = document.createElement("DIV");
+	var messageText = document.createElement("P");
+	messageText.innerHTML = message;
+	messageContent.appendChild(messageText);
+	var buttonsElement = document.createElement("FORM");
+	for(var i = 0; i < buttons.length; i++) {
+		var button = document.createElement("BUTTON");
+		button.type = "BUTTON";
+		button.handler = buttons[i];
+		button.onclick = function() {
+			body.removeChild(messageElement);
+			body.style.overflow = "auto";
+			this.handler.handler();
+		}
+		button.appendChild(document.createTextNode(buttons[i].caption));
+		buttonsElement.appendChild(button);
+	}
+	messageContent.appendChild(buttonsElement);
+	messageElement.appendChild(messageContent);
+	body.insertBefore(messageElement, body.firstChild);
+}
+
+function show(message, action) {
+	action = action !== undefined ? action : function() {}
+	__msg(message, [{
+		caption: "Закрыть",
+		handler: action
+	}]);
+}
+
+function errorMessage(element, message) {
+	show(message, function() {element.focus()});
+}
+
+function validateForm(form, data) {
+	for(i in data) {
+		if(!data[i].checker(form[data[i].id].value)) {
+			errorMessage(form[data[i].id], data[i].message);
+			return false;
+		}
+	}
+	return true;
+}
+
+function checkRegexp(value, regexp) {
+	return new RegExp(regexp).test(value);
+}

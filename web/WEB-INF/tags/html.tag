@@ -1,6 +1,7 @@
 <%@tag language="java" pageEncoding="UTF-8"%>
 <%@attribute name="title" required="true" rtexprvalue="true" type="java.lang.String"%>
 <%@attribute name="stylesheet" required="false" rtexprvalue="true" type="java.lang.String"%>
+<%@attribute name="jshandler" required="false" rtexprvalue="true" type="java.lang.String"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/strict.dtd">
 <HTML>
@@ -16,6 +17,9 @@
 		<SCRIPT type="text/javascript" src="${mainJsUrl}"></SCRIPT>
 		<c:url var="generalHandlersJsUrl" value="/js/general-handlers.js"/>
 		<SCRIPT type="text/javascript" src="${generalHandlersJsUrl}"></SCRIPT>
+		<c:if test="${not empty jshandler}">
+			<SCRIPT type="text/javascript" src="${jshandler}"></SCRIPT>
+		</c:if>
 	</HEAD>
 	<BODY>
 		<DIV id="header">
