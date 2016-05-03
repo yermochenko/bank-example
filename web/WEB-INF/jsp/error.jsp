@@ -9,7 +9,7 @@
 		<c:set var="message" value="Непредвиденная ошибка приложения"/>
 	</c:otherwise>
 </c:choose>
-<c:url var="cssUrl" value="/error.css"/>
+<c:url var="cssUrl" value="/css/error.css"/>
 <u:html title="${message}" stylesheet="${cssUrl}">
 	<DIV class="block">
 		<H2 class="error">${message}</H2>

@@ -7,7 +7,7 @@
 }
 
 BODY {
-	background: #F2F2F2 url("img/background.png") fixed 8px 8px;
+	background: #F2F2F2 url("../img/background.png") fixed 8px 8px;
 }
 
 #header {

@@ -1,7 +1,7 @@
 <%@page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@taglib tagdir="/WEB-INF/tags" prefix="u"%>
-<c:url var="cssUrl" value="/login.css"/>
+<c:url var="cssUrl" value="/css/login.css"/>
 <u:html title="Авторизация пользователя" stylesheet="${cssUrl}">
 	<DIV class="block">
 		<H2>Авторизация пользователя</H2>

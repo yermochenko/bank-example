@@ -7,7 +7,7 @@
 	<HEAD>
 		<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
 		<TITLE>Банк &laquo;Рога&nbsp;&amp;&nbsp;копыта&raquo;&nbsp;&mdash; ${title}</TITLE>
-		<c:url var="mainCssUrl" value="/main.css"/>
+		<c:url var="mainCssUrl" value="/css/main.css"/>
 		<LINK rel="stylesheet" type="text/css" href="${mainCssUrl}">
 		<c:if test="${not empty stylesheet}">
 			<LINK rel="stylesheet" type="text/css" href="${stylesheet}">

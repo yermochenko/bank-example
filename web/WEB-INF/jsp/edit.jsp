@@ -10,7 +10,7 @@
 		<c:set var="title" value="Изменение данных работника &laquo;${user.login}&raquo;"/>
 	</c:otherwise>
 </c:choose>
-<c:url var="cssUrl" value="/admin.css"/>
+<c:url var="cssUrl" value="/css/admin.css"/>
 <u:html title="${title}" stylesheet="${cssUrl}">
 	<DIV class="block">
 		<H2>${title}</H2>
