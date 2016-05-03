@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import domain.User;
-import service.UserStorage;
+import service.UserService;
 
 public class LoginServlet extends HttpServlet {
 	@Override
@@ -28,8 +28,10 @@ public class LoginServlet extends HttpServlet {
 		String login = request.getParameter("login");
 		String password = request.getParameter("password");
 		if(login != null && password != null) {
+			UserService service = null;
 			try {
-				User user = UserStorage.findByLoginAndPassword(login, password);
+				service = new UserService();
+				User user = service.findByLoginAndPassword(login, password);
 				if(user != null) {
 					HttpSession session = request.getSession();
 					session.setAttribute("currentUser", user);
@@ -39,6 +41,10 @@ public class LoginServlet extends HttpServlet {
 				}
 			} catch(SQLException e) {
 				throw new ServletException(e);
+			} finally {
+				if(service != null) {
+					service.close();
+				}
 			}
 		} else {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/login.jsp").forward(request, response);

@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import domain.Role;
 import domain.User;
-import service.UserStorage;
+import service.UserService;
 
 public class UserSaveServlet extends HttpServlet {
 	@Override
@@ -34,10 +34,16 @@ public class UserSaveServlet extends HttpServlet {
 			if(id != null) {
 				user.setId(id);
 			}
+			UserService service = null;
 			try {
-				UserStorage.save(user);
+				service = new UserService();
+				service.save(user);
 			} catch(SQLException e) {
 				throw new ServletException(e);
+			} finally {
+				if(service != null) {
+					service.close();
+				}
 			}
 		}
 		response.sendRedirect(request.getContextPath() + "/index.html");

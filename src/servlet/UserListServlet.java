@@ -10,17 +10,23 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import domain.User;
-import service.UserStorage;
+import service.UserService;
 
 public class UserListServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		UserService service = null;
 		try {
-			List<User> users = UserStorage.findAll();
+			service = new UserService();
+			List<User> users = service.findAll();
 			request.setAttribute("users", users);
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/index.jsp").forward(request, response);
 		} catch(SQLException e) {
 			throw new ServletException(e);
+		} finally {
+			if(service != null) {
+				service.close();
+			}
 		}
 	}
 }

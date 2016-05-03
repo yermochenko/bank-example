@@ -11,15 +11,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import domain.Role;
 import domain.User;
-import service.UserStorage;
+import service.UserService;
 
 public class UserEditServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		UserService service = null;
 		try {
+			service = new UserService();
 			User user = null;
 			try {
-				user = UserStorage.findById(Integer.parseInt(request.getParameter("id")));
+				user = service.findById(Integer.parseInt(request.getParameter("id")));
 			} catch(NumberFormatException e) {}
 			request.setAttribute("user", user);
 			if(user != null && user.getRole() == Role.CLIENT) {
@@ -30,6 +32,10 @@ public class UserEditServlet extends HttpServlet {
 			getServletContext().getRequestDispatcher("/WEB-INF/jsp/edit.jsp").forward(request, response);
 		} catch(SQLException e) {
 			throw new ServletException(e);
+		} finally {
+			if(service != null) {
+				service.close();
+			}
 		}
 	}
 }

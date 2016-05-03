@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import service.UserStorage;
+import service.UserService;
 
 public class UserDeleteServlet extends HttpServlet {
 	@Override
@@ -21,10 +21,16 @@ public class UserDeleteServlet extends HttpServlet {
 				ids.add(Integer.parseInt(id));
 			} catch(NumberFormatException e) {}
 		}
+		UserService service = null;
 		try {
-			UserStorage.delete(ids);
+			service = new UserService();
+			service.delete(ids);
 		} catch(SQLException e) {
 			throw new ServletException(e);
+		} finally {
+			if(service != null) {
+				service.close();
+			}
 		}
 		response.sendRedirect(request.getContextPath() + "/index.html");
 	}

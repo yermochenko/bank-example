@@ -1,4 +1,4 @@
-package service;
+package database;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -11,52 +11,18 @@ import java.util.List;
 import domain.Role;
 import domain.User;
 
-public class UserStorage {
-	public static User findById(Integer id) throws SQLException {
-		return read(id);
+public class UserDatabaseWorker {
+	private Connection connection = null;
+
+	public void setConnection(Connection connection) {
+		this.connection = connection;
 	}
 
-	public static User findByLoginAndPassword(String login, String password) throws SQLException {
-		return read(login, password);
-	}
-
-	public static List<User> findAll() throws SQLException {
-		return read();
-	}
-
-	public static void save(User user) throws SQLException {
-		if(user.getRole() != Role.CLIENT) {
-			if(user.getId() == null) {
-				user.setPassword("12345");
-				Integer id = create(user);
-				user.setId(id);
-			} else {
-				User oldUser = read(user.getId());
-				if(oldUser != null && oldUser.getRole() != Role.CLIENT) {
-					user.setPassword(oldUser.getPassword());
-					update(user);
-				}
-			}
-		}
-	}
-
-	public static void delete(List<Integer> ids) throws SQLException {
-		User user;
-		for(Integer id : ids) {
-			user = read(id);
-			if(user.getRole() != Role.CLIENT) {
-				delete(id);
-			}
-		}
-	}
-
-	private static User read(Integer id) throws SQLException {
+	public User read(Integer id) throws SQLException {
 		String sql = "SELECT `login`, `password`, `role` FROM `user` WHERE `id`=?";
-		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		try {
-			connection = Connector.connect();
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, id);
 			resultSet = statement.executeQuery();
@@ -76,19 +42,14 @@ public class UserStorage {
 			try {
 				statement.close();
 			} catch(NullPointerException | SQLException e) {}
-			try {
-				connection.close();
-			} catch(NullPointerException | SQLException e) {}
 		}
 	}
 
-	private static User read(String login, String password) throws SQLException {
+	public User read(String login, String password) throws SQLException {
 		String sql = "SELECT `id`, `role` FROM `user` WHERE `login`=? AND `password`=?";
-		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		try {
-			connection = Connector.connect();
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, login);
 			statement.setString(2, password);
@@ -109,19 +70,14 @@ public class UserStorage {
 			try {
 				statement.close();
 			} catch(NullPointerException | SQLException e) {}
-			try {
-				connection.close();
-			} catch(NullPointerException | SQLException e) {}
 		}
 	}
 
-	private static List<User> read() throws SQLException {
+	public List<User> read() throws SQLException {
 		String sql = "SELECT `id`, `login`, `password`, `role` FROM `user`";
-		Connection connection = null;
 		Statement statement = null;
 		ResultSet resultSet = null;
 		try {
-			connection = Connector.connect();
 			statement = connection.createStatement();
 			resultSet = statement.executeQuery(sql);
 			User user = null;
@@ -142,19 +98,14 @@ public class UserStorage {
 			try {
 				statement.close();
 			} catch(NullPointerException | SQLException e) {}
-			try {
-				connection.close();
-			} catch(NullPointerException | SQLException e) {}
 		}
 	}
 
-	private static Integer create(User user) throws SQLException {
+	public Integer create(User user) throws SQLException {
 		String sql = "INSERT INTO `user` (`login`, `password`, `role`) VALUES (?, ?, ?)";
-		Connection connection = null;
 		PreparedStatement statement = null;
 		ResultSet resultSet = null;
 		try {
-			connection = Connector.connect();
 			statement = connection.prepareStatement(sql, PreparedStatement.RETURN_GENERATED_KEYS);
 			statement.setString(1, user.getLogin());
 			statement.setString(2, user.getPassword());
@@ -170,18 +121,13 @@ public class UserStorage {
 			try {
 				statement.close();
 			} catch(NullPointerException | SQLException e) {}
-			try {
-				connection.close();
-			} catch(NullPointerException | SQLException e) {}
 		}
 	}
 
-	private static void update(User user) throws SQLException {
+	public void update(User user) throws SQLException {
 		String sql = "UPDATE `user` SET `login`=?, `password`=?, `role`=? WHERE `id`=?";
-		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
-			connection = Connector.connect();
 			statement = connection.prepareStatement(sql);
 			statement.setString(1, user.getLogin());
 			statement.setString(2, user.getPassword());
@@ -192,27 +138,19 @@ public class UserStorage {
 			try {
 				statement.close();
 			} catch(NullPointerException | SQLException e) {}
-			try {
-				connection.close();
-			} catch(NullPointerException | SQLException e) {}
 		}
 	}
 
-	private static void delete(Integer id) throws SQLException {
+	public void delete(Integer id) throws SQLException {
 		String sql = "DELETE FROM `user` WHERE `id`=?";
-		Connection connection = null;
 		PreparedStatement statement = null;
 		try {
-			connection = Connector.connect();
 			statement = connection.prepareStatement(sql);
 			statement.setInt(1, id);
 			statement.executeUpdate();
 		} finally {
 			try {
 				statement.close();
-			} catch(NullPointerException | SQLException e) {}
-			try {
-				connection.close();
 			} catch(NullPointerException | SQLException e) {}
 		}
 	}
