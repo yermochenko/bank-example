@@ -28,7 +28,7 @@
 								<c:otherwise>&nbsp;</c:otherwise>
 							</c:choose>
 						</TD>
-						<TD><A href="${editUrl}">${user.login}</A></TD>
+						<TD>${user.login}</TD>
 						<TD>${user.password}</TD>
 						<TD>${user.role}</TD>
 					</TR>

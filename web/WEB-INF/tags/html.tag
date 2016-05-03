@@ -12,6 +12,10 @@
 		<c:if test="${not empty stylesheet}">
 			<LINK rel="stylesheet" type="text/css" href="${stylesheet}">
 		</c:if>
+		<c:url var="mainJsUrl" value="/js/main.js"/>
+		<SCRIPT type="text/javascript" src="${mainJsUrl}"></SCRIPT>
+		<c:url var="generalHandlersJsUrl" value="/js/general-handlers.js"/>
+		<SCRIPT type="text/javascript" src="${generalHandlersJsUrl}"></SCRIPT>
 	</HEAD>
 	<BODY>
 		<DIV id="header">
