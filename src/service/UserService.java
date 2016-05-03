@@ -59,15 +59,12 @@ public class UserService {
 		}
 	}
 
-	public void delete(List<Integer> ids) throws SQLException {
+	public void delete(Integer id) throws SQLException {
 		try {
 			connection.setAutoCommit(false);
-			User user;
-			for(Integer id : ids) {
-				user = db.read(id);
-				if(user.getRole() != Role.CLIENT) {
-					db.delete(id);
-				}
+			User user = db.read(id);
+			if(user.getRole() != Role.CLIENT) {
+				db.delete(id);
 			}
 			connection.commit();
 		} catch(SQLException e) {

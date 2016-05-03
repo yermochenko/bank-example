@@ -41,6 +41,13 @@
 			<BUTTON type="submit"${disabled}>Сохранить</BUTTON>
 			<BUTTON type="reset">Сбросить</BUTTON>
 		</FORM>
+		<c:if test="${not empty user.id and user.role != 'CLIENT'}">
+			<c:url var="deleteUrl" value="/delete.html"/>
+			<FORM action="${deleteUrl}" method="post">
+				<INPUT type="hidden" name="id" value="${user.id}">
+				<BUTTON type="submit">Уволить работника</BUTTON>
+			</FORM>
+		</c:if>
 		<c:url var="indexUrl" value="/index.html"/>
 		<FORM action="${indexUrl}"><BUTTON type="submit">Назад</BUTTON></FORM>
 	</DIV>
