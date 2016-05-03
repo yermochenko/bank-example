@@ -13,6 +13,44 @@ import domain.User;
 
 public class UserStorage {
 	public static User findById(Integer id) throws SQLException {
+		return read(id);
+	}
+
+	public static User findByLoginAndPassword(String login, String password) throws SQLException {
+		return read(login, password);
+	}
+
+	public static List<User> findAll() throws SQLException {
+		return read();
+	}
+
+	public static void save(User user) throws SQLException {
+		if(user.getRole() != Role.CLIENT) {
+			if(user.getId() == null) {
+				user.setPassword("12345");
+				Integer id = create(user);
+				user.setId(id);
+			} else {
+				User oldUser = read(user.getId());
+				if(oldUser != null && oldUser.getRole() != Role.CLIENT) {
+					user.setPassword(oldUser.getPassword());
+					update(user);
+				}
+			}
+		}
+	}
+
+	public static void delete(List<Integer> ids) throws SQLException {
+		User user;
+		for(Integer id : ids) {
+			user = read(id);
+			if(user.getRole() != Role.CLIENT) {
+				delete(id);
+			}
+		}
+	}
+
+	private static User read(Integer id) throws SQLException {
 		String sql = "SELECT `login`, `password`, `role` FROM `user` WHERE `id`=?";
 		Connection connection = null;
 		PreparedStatement statement = null;
@@ -44,7 +82,7 @@ public class UserStorage {
 		}
 	}
 
-	public static User findByLoginAndPassword(String login, String password) throws SQLException {
+	private static User read(String login, String password) throws SQLException {
 		String sql = "SELECT `id`, `role` FROM `user` WHERE `login`=? AND `password`=?";
 		Connection connection = null;
 		PreparedStatement statement = null;
@@ -77,7 +115,7 @@ public class UserStorage {
 		}
 	}
 
-	public static List<User> findAll() throws SQLException {
+	private static List<User> read() throws SQLException {
 		String sql = "SELECT `id`, `login`, `password`, `role` FROM `user`";
 		Connection connection = null;
 		Statement statement = null;
@@ -107,32 +145,6 @@ public class UserStorage {
 			try {
 				connection.close();
 			} catch(NullPointerException | SQLException e) {}
-		}
-	}
-
-	public static void save(User user) throws SQLException {
-		if(user.getRole() != Role.CLIENT) {
-			if(user.getId() == null) {
-				user.setPassword("12345");
-				Integer id = create(user);
-				user.setId(id);
-			} else {
-				User oldUser = findById(user.getId());
-				if(oldUser != null && oldUser.getRole() != Role.CLIENT) {
-					user.setPassword(oldUser.getPassword());
-					update(user);
-				}
-			}
-		}
-	}
-
-	public static void delete(List<Integer> ids) throws SQLException {
-		User user;
-		for(Integer id : ids) {
-			user = findById(id);
-			if(user.getRole() != Role.CLIENT) {
-				delete(id);
-			}
 		}
 	}
 
