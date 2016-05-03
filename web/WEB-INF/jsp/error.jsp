@@ -10,7 +10,7 @@
 		<H1>Банк &laquo;Рога&nbsp;&amp;&nbsp;копыта&raquo;</H1>
 		<c:choose>
 			<c:when test="${not empty currentUser}">
-				<P>${currentUser.login}</P>
+				<P>${currentUser.login}&nbsp;&mdash; <A href="logout.html">выйти</A></P>
 			</c:when>
 			<c:otherwise>
 				<P><A href="login.html">войти</A></P>
