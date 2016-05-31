@@ -5,9 +5,6 @@
 <u:html title="Авторизация пользователя" stylesheet="${cssUrl}">
 	<DIV class="block">
 		<H2>Авторизация пользователя</H2>
-		<c:if test="${not empty param['message']}">
-			<P class="error">${param['message']}</P>
-		</c:if>
 		<c:url var="loginUrl" value="/login.html"/>
 		<FORM action="${loginUrl}" method="post">
 			<LABEL for="login-id">Имя пользователя:</LABEL>
