@@ -20,6 +20,13 @@
 		<c:if test="${not empty jshandler}">
 			<SCRIPT type="text/javascript" src="${jshandler}"></SCRIPT>
 		</c:if>
+		<c:if test="${not empty param.message}">
+			<SCRIPT type="text/javascript">
+				handlers.add(null, HandlerType.ONLOAD, function() {
+					show("${param.message}");
+				});
+			</SCRIPT>
+		</c:if>
 	</HEAD>
 	<BODY>
 		<DIV id="header">

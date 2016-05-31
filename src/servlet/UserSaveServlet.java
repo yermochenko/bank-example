@@ -43,7 +43,7 @@ public class UserSaveServlet extends HttpServlet {
 			} catch(SQLException e) {
 				throw new ServletException(e);
 			} catch(NotUniqueLoginException e) {
-				String url = request.getContextPath() + "/edit.html?message=" + URLEncoder.encode("Имя пользователя \"" + e.getLogin() + "\" уже занято", "UTF-8");
+				String url = request.getContextPath() + "/edit.html?message=" + URLEncoder.encode("Имя пользователя «" + e.getLogin() + "» уже занято", "UTF-8");
 				if(user.getId() != null) {
 					url += "&id=" + user.getId();
 				}
