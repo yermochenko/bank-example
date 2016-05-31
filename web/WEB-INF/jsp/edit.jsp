@@ -15,6 +15,9 @@
 <u:html title="${title}" stylesheet="${cssUrl}" jshandler="${jsUrl}">
 	<DIV class="block">
 		<H2>${title}</H2>
+		<c:if test="${not empty param.message}">
+			<P>${param.message}</P>
+		</c:if>
 		<c:url var="saveUrl" value="/save.html"/>
 		<FORM id="user-edit-form" action="${saveUrl}" method="post">
 			<c:if test="${user.role != 'CLIENT' and not empty user.id}">

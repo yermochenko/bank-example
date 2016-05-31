@@ -7,6 +7,7 @@ import java.util.List;
 import database.UserDatabaseWorker;
 import domain.Role;
 import domain.User;
+import exception.NotUniqueLoginException;
 
 public class UserService {
 	private Connection connection;
@@ -30,19 +31,27 @@ public class UserService {
 		return db.read();
 	}
 
-	public void save(User user) throws SQLException {
+	public void save(User user) throws SQLException, NotUniqueLoginException {
 		try {
 			connection.setAutoCommit(false);
 			if(user.getRole() != Role.CLIENT) {
 				if(user.getId() == null) {
-					user.setPassword("12345");
-					Integer id = db.create(user);
-					user.setId(id);
+					if(db.isLoginUnique(user.getLogin())) {
+						user.setPassword("12345");
+						Integer id = db.create(user);
+						user.setId(id);
+					} else {
+						throw new NotUniqueLoginException(user.getLogin());
+					}
 				} else {
 					User oldUser = db.read(user.getId());
 					if(oldUser != null && oldUser.getRole() != Role.CLIENT) {
-						user.setPassword(oldUser.getPassword());
-						db.update(user);
+						if(user.getLogin().equals(oldUser.getLogin()) || db.isLoginUnique(user.getLogin())) {
+							user.setPassword(oldUser.getPassword());
+							db.update(user);
+						} else {
+							throw new NotUniqueLoginException(user.getLogin());
+						}
 					}
 				}
 			}

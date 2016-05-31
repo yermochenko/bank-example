@@ -73,6 +73,29 @@ public class UserDatabaseWorker {
 		}
 	}
 
+	public boolean isLoginUnique(String login) throws SQLException {
+		String sql = "SELECT COUNT(*) AS `quantity` FROM `user` WHERE `login`=?";
+		PreparedStatement statement = null;
+		ResultSet resultSet = null;
+		try {
+			statement = connection.prepareStatement(sql);
+			statement.setString(1, login);
+			resultSet = statement.executeQuery();
+			boolean isUnique = true;
+			if(resultSet.next()) {
+				isUnique = resultSet.getInt("quantity") == 0;
+			}
+			return isUnique;
+		} finally {
+			try {
+				resultSet.close();
+			} catch(NullPointerException | SQLException e) {}
+			try {
+				statement.close();
+			} catch(NullPointerException | SQLException e) {}
+		}
+	}
+
 	public List<User> read() throws SQLException {
 		String sql = "SELECT `id`, `login`, `password`, `role` FROM `user`";
 		Statement statement = null;
