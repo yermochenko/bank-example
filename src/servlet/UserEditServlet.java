@@ -29,7 +29,7 @@ public class UserEditServlet extends HttpServlet {
 			} else {
 				request.setAttribute("roles", Role.employees());
 			}
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/edit.jsp").forward(request, response);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/user/edit.jsp").forward(request, response);
 		} catch(SQLException e) {
 			throw new ServletException(e);
 		} finally {

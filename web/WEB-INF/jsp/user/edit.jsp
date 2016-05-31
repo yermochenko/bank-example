@@ -15,7 +15,7 @@
 <u:html title="${title}" stylesheet="${cssUrl}" jshandler="${jsUrl}">
 	<DIV class="block">
 		<H2>${title}</H2>
-		<c:url var="saveUrl" value="/save.html"/>
+		<c:url var="saveUrl" value="/user/save.html"/>
 		<FORM id="user-edit-form" action="${saveUrl}" method="post">
 			<c:if test="${user.role != 'CLIENT' and not empty user.id}">
 				<INPUT type="hidden" name="id" value="${user.id}">
@@ -43,13 +43,13 @@
 			<BUTTON type="reset">Сбросить</BUTTON>
 		</FORM>
 		<c:if test="${not empty user.id and user.role != 'CLIENT'}">
-			<c:url var="deleteUrl" value="/delete.html"/>
+			<c:url var="deleteUrl" value="/user/delete.html"/>
 			<FORM action="${deleteUrl}" method="post">
 				<INPUT type="hidden" name="id" value="${user.id}">
 				<BUTTON type="submit">Уволить работника</BUTTON>
 			</FORM>
 		</c:if>
-		<c:url var="indexUrl" value="/index.html"/>
+		<c:url var="indexUrl" value="/user/index.html"/>
 		<FORM action="${indexUrl}"><BUTTON type="submit">Назад</BUTTON></FORM>
 	</DIV>
 </u:html>

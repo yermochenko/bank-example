@@ -9,18 +9,18 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import domain.User;
-import service.UserService;
+import domain.Client;
+import service.ClientService;
 
-public class UserListServlet extends HttpServlet {
+public class ClientListServlet extends HttpServlet {
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		UserService service = null;
+		ClientService service = null;
 		try {
-			service = new UserService();
-			List<User> users = service.findAll();
-			request.setAttribute("users", users);
-			getServletContext().getRequestDispatcher("/WEB-INF/jsp/user/index.jsp").forward(request, response);
+			service = new ClientService();
+			List<Client> clients = service.findAll();
+			request.setAttribute("clients", clients);
+			getServletContext().getRequestDispatcher("/WEB-INF/jsp/client/index.jsp").forward(request, response);
 		} catch(SQLException e) {
 			throw new ServletException(e);
 		} finally {

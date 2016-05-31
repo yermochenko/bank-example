@@ -13,7 +13,7 @@
 				<TH>Роль</TH>
 			</TR>
 			<c:forEach var="user" items="${users}">
-				<c:url var="editUrl" value="/edit.html">
+				<c:url var="editUrl" value="/user/edit.html">
 					<c:param name="id" value="${user.id}"/>
 				</c:url>
 				<TR id="${editUrl}">
@@ -23,7 +23,7 @@
 				</TR>
 			</c:forEach>
 		</TABLE>
-		<c:url var="editUrl" value="/edit.html"/>
+		<c:url var="editUrl" value="/user/edit.html"/>
 		<FORM action="${editUrl}"><BUTTON type="submit">Добавить работника</BUTTON></FORM>
 	</DIV>
 </u:html>

@@ -33,24 +33,24 @@
 			<param-value>ADMIN;CASHIER;CLIENT;MANAGER</param-value>
 		</init-param>
 		<init-param>
-			<param-name>/</param-name>
+			<param-name>/user/index.html</param-name>
 			<param-value>ADMIN</param-value>
 		</init-param>
 		<init-param>
-			<param-name>/index.html</param-name>
+			<param-name>/user/edit.html</param-name>
 			<param-value>ADMIN</param-value>
 		</init-param>
 		<init-param>
-			<param-name>/edit.html</param-name>
+			<param-name>/user/save.html</param-name>
 			<param-value>ADMIN</param-value>
 		</init-param>
 		<init-param>
-			<param-name>/save.html</param-name>
+			<param-name>/user/delete.html</param-name>
 			<param-value>ADMIN</param-value>
 		</init-param>
 		<init-param>
-			<param-name>/delete.html</param-name>
-			<param-value>ADMIN</param-value>
+			<param-name>/client/index.html</param-name>
+			<param-value>CASHIER;MANAGER</param-value>
 		</init-param>
 	</filter>
 	<filter-mapping>
@@ -77,12 +77,21 @@
 	</servlet-mapping>
 
 	<servlet>
+		<servlet-name>StartPageServlet</servlet-name>
+		<servlet-class>servlet.StartPageServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>StartPageServlet</servlet-name>
+		<url-pattern>/index.html</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
 		<servlet-name>UserListServlet</servlet-name>
 		<servlet-class>servlet.UserListServlet</servlet-class>
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>UserListServlet</servlet-name>
-		<url-pattern>/index.html</url-pattern>
+		<url-pattern>/user/index.html</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -91,7 +100,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>UserEditServlet</servlet-name>
-		<url-pattern>/edit.html</url-pattern>
+		<url-pattern>/user/edit.html</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -100,7 +109,7 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>UserSaveServlet</servlet-name>
-		<url-pattern>/save.html</url-pattern>
+		<url-pattern>/user/save.html</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
@@ -109,7 +118,16 @@
 	</servlet>
 	<servlet-mapping>
 		<servlet-name>UserDeleteServlet</servlet-name>
-		<url-pattern>/delete.html</url-pattern>
+		<url-pattern>/user/delete.html</url-pattern>
+	</servlet-mapping>
+
+	<servlet>
+		<servlet-name>ClientListServlet</servlet-name>
+		<servlet-class>servlet.ClientListServlet</servlet-class>
+	</servlet>
+	<servlet-mapping>
+		<servlet-name>ClientListServlet</servlet-name>
+		<url-pattern>/client/index.html</url-pattern>
 	</servlet-mapping>
 
 	<listener>

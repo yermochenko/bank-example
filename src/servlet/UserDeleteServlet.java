@@ -26,6 +26,6 @@ public class UserDeleteServlet extends HttpServlet {
 				service.close();
 			}
 		}
-		response.sendRedirect(request.getContextPath() + "/index.html");
+		response.sendRedirect(request.getContextPath() + "/user/index.html");
 	}
 }
