@@ -32,18 +32,17 @@
 		<DIV id="header">
 			<H1>Банк &laquo;Рога&nbsp;&amp;&nbsp;копыта&raquo;</H1>
 			<UL>
-				<LI>
-					<c:choose>
-						<c:when test="${not empty currentUser}">
+				<c:if test="${not empty currentUser}">
+					<LI>
+						<c:url var="arrowImgUrl" value="/img/arrow.gif"/>
+						<A href="#">${currentUser.login} <IMG src="${arrowImgUrl}"></A>
+						<OL>
+							<LI><A href="#">профиль</A></LI>
 							<c:url var="logoutUrl" value="/logout.html"/>
-							<A href="${logoutUrl}">${currentUser.login}&nbsp;&mdash; выйти</A>
-						</c:when>
-						<c:otherwise>
-							<c:url var="loginUrl" value="/login.html"/>
-							<A href="${loginUrl}">войти</A>
-						</c:otherwise>
-					</c:choose>
-				</LI>
+							<LI><A href="${logoutUrl}">выход</A></LI>
+						</OL>
+					</LI>
+				</c:if>
 			</UL>
 		</DIV>
 		<DIV id="content">
